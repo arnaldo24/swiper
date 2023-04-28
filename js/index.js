@@ -99,6 +99,8 @@ document.addEventListener("pointermove",function(){
     	let newLeft = event.pageX - Xini;
     	swipe.style.left = newLeft + "px";
 
+    	if( window.innerWidth < 998 ) limit_swipe = 40;
+
     	if( event.movementX >= 1 ){
     		if( range % 8 === 0 ) rotation += 1;
 			
@@ -121,6 +123,7 @@ document.addEventListener("pointermove",function(){
     		if( range % 8 === 0 ) rotation -= 1;
 			
 			swipe.style.transform = `translateY( ${ Math.abs( rotation ) }px) rotate( ${rotation}deg )`;
+
 
     		if( Math.abs( range-- ) >= limit_swipe ){
     			down_active = false;
